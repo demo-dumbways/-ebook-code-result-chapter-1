@@ -1,3 +1,5 @@
+let blogs = [];
+
 function addBlog(event) {
   event.preventDefault();
 
@@ -22,4 +24,6 @@ function addBlog(event) {
     content: content,
     postedAt: new Date(),
   };
+
+  blogs.push(blog);
 }
