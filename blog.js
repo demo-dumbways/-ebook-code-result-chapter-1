@@ -60,3 +60,29 @@ function renderBlog() {
       `;
   }
 }
+
+const month = [
+  'Januari',
+  'Februari',
+  'Maret',
+  'April',
+  'Mei',
+  'Juni',
+  'Juli',
+  'Agustus',
+  'September',
+  'Oktober',
+  'November',
+  'Desember',
+];
+
+function getFullTime(time) {
+  const date = time.getDate();
+  const monthIndex = time.getMonth();
+  const year = time.getFullYear();
+
+  const hours = time.getHours();
+  const minutes = time.getMinutes();
+
+  return `${date} ${month[monthIndex]} ${year} ${hours}:${minutes} WIB`;
+}
