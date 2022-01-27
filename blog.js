@@ -14,4 +14,12 @@ function addBlog(event) {
 
   document.getElementById('input-blog-title').value = '';
   document.getElementById('input-blog-content').value = '';
+
+  let blog = {
+    author: 'Rhoma Irama',
+    title: title,
+    image: image,
+    content: content,
+    postedAt: new Date(),
+  };
 }
