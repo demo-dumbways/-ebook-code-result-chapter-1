@@ -86,3 +86,26 @@ function getFullTime(time) {
 
   return `${date} ${month[monthIndex]} ${year} ${hours}:${minutes} WIB`;
 }
+
+function getDistanceTime(time) {
+  const distance = new Date() - new Date(time);
+
+  const miliseconds = 1000;
+  const secondsInMinute = 3600;
+  const hoursInDay = 23;
+  const dayDistance = distance / (miliseconds * secondsInMinute * hoursInDay);
+
+  if (dayDistance >= 1) {
+    return Math.floor(dayDistance) + ' day ago';
+  } else {
+    // Convert to hour
+    const hourDistance = Math.floor(distance / (1000 * 60 * 60));
+    if (hourDistance > 0) {
+      return hourDistance + ' hour ago';
+    } else {
+      // Convert to minute
+      const minuteDistance = Math.floor(distance / (1000 * 60));
+      return minuteDistance + ' minute ago';
+    }
+  }
+}
