@@ -48,7 +48,7 @@ function renderBlog() {
 
   let blogContainer = document.getElementById('contents');
 
-  blogContainer.innerHTML = firstBlogContent();
+  blogContainer.innerHTML = '';
 
   for (let i = 0; i < blogs.length; i++) {
     console.log(blogs[i]);
@@ -102,7 +102,15 @@ function getDistanceTime(time) {
     } else {
       // Convert to minute
       const minuteDistance = Math.floor(distance / (1000 * 60));
-      return minuteDistance + ' minute ago';
+
+      console.log(minuteDistance);
+      if (minuteDistance == 0) {
+        const secondDistance = Math.floor(distance / 1000);
+
+        return secondDistance + ' second ago';
+      } else {
+        return minuteDistance + ' minute ago';
+      }
     }
   }
 }
@@ -117,3 +125,7 @@ function getFullTime(time) {
 
   return `${date} ${month[monthIndex]} ${year} ${hours}:${minutes} WIB`;
 }
+
+setInterval(() => {
+  renderBlog();
+}, 1000);
